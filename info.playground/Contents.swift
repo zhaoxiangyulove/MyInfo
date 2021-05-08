@@ -104,11 +104,11 @@ struct MyInfo {
         "使用 Flutter 开发日历相关需求"
       ]),
       ProjectExperience(startDate: "2019.03".zxy_getDate(), endDate: "2019.10".zxy_getDate(), projectName: "Color Fun", role: .developer, programLanguages: [.oc], designPatterns: ["MVC", "Singleton", "RAC"], description: "基于 OpenGL 开发的涂色游戏", mainTechniques: [
-        "集成 RAC 做响应式编程, 使用内置宏 提高效率",
-        "结构分层,负责数据层开发, 保证各版本升级的稳定",
+        "集成 RAC 做响应式编程, 使用内置宏, 提高效率",
+        "结构分层, 负责数据层开发, 保证各版本升级的稳定",
         "提供一键生成马甲包工具, 对海外的 Color Fun 进行一键生成国内包"
       ]),
-      ProjectExperience(startDate: "2018.03".zxy_getDate(), endDate: "2019.03".zxy_getDate(), projectName: "GoldenEye", role: .developer, programLanguages: [.oc], designPatterns: ["Adapter", "Stategy"], description: "广告库 SDK", mainTechniques: [
+      ProjectExperience(startDate: "2018.03".zxy_getDate(), endDate: "2019.03".zxy_getDate(), projectName: "GoldenEye", role: .developer, programLanguages: [.oc], designPatterns: ["Adapter", "Strategy"], description: "广告库 SDK", mainTechniques: [
         "Config 远端配置, 支持线上产品更改广告相关内容",
         "API 的统一, 加载和展示策略的多样和稳定, 使项目组代码更容易接入, 并提高收益",
         "负责为 H5 提供了 JS 版广告库, 主要语法为 ES6"
