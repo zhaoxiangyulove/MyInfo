@@ -43,22 +43,6 @@ struct MyInfoView: View {
     }
   }
   
-  struct SectionView<Content>: View where Content: View {
-    private let _title: String
-    private let _content: Content
-    
-    init(title: String, @ViewBuilder content: () -> Content) {
-      _title = title
-      _content = content()
-    }
-    var body: some View {
-      ZXYVStack {
-        TitleLabel(text: _title)
-        _content
-      }
-    }
-  }
-  
   struct GraduationInfoView: View {
     private let _graduationInfo: GraduationInfoItem
     init(graduationInfo: GraduationInfoItem) {
@@ -97,8 +81,7 @@ struct MyInfoView: View {
     }
     
     var body: some View {
-      ZXYVStack {
-        TitleLabel(text: "项目经验")
+      SectionView(title: "项目经验") {
         ForEach(_item.projectExperienceList) { (experience) in
           ProjectInfoView(experience: experience)
         }
@@ -113,34 +96,11 @@ struct MyInfoView: View {
     }
     
     var body: some View {
-      ZXYVStack {
-        TitleLabel(text: "工作经历")
+      SectionView(title: "工作经历") {
         ForEach(_item.workExperienceList) { (experience) in
           WorkInfoView(experience: experience)
         }
       }
-    }
-  }
-  
-  struct ProjectInfoView: View{
-    private let _experience: ProjectExperience
-    init(experience: ProjectExperience) {
-      _experience = experience
-    }
-    
-    var body: some View {
-      DisclosureInfoView(title: getTime(startDate: _experience.startDate, endDate: _experience.endDate), subtitle: _experience.projectName + " - " + _experience.description, content: "开发语言：\(getString(_experience.programLanguages))\n设计模式：\(getString(_experience.designPatterns, separator: ", "))\n主要技术：\(getString(_experience.mainTechniques, separator: "\n"))")
-    }
-  }
-  
-  struct WorkInfoView: View{
-    private let _experience: WorkExperience
-    init(experience: WorkExperience) {
-      _experience = experience
-    }
-    
-    var body: some View {
-      DisclosureInfoView(title: getTime(startDate: _experience.startDate, endDate: _experience.endDate), subtitle: _experience.companyName, content: _experience.description)
     }
   }
   
@@ -151,8 +111,7 @@ struct MyInfoView: View {
     }
     
     var body: some View {
-      ZXYVStack {
-        TitleLabel(text: "总结")
+      SectionView(title: "总结") {
         InfoLabel(text: _description)
       }
     }

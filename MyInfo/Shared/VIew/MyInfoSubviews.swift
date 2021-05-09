@@ -58,8 +58,6 @@ extension MyInfoView {
     }
   }
   
-  
-  
   struct DisclosureInfoView: View {
     private let _content: String
     private let _subtitle: String
@@ -99,6 +97,44 @@ extension MyInfoView {
       VStack(alignment: .leading, spacing: nil, content: {
         _content
       })
+    }
+  }
+  
+  struct ProjectInfoView: View{
+    private let _experience: ProjectExperience
+    init(experience: ProjectExperience) {
+      _experience = experience
+    }
+    
+    var body: some View {
+      DisclosureInfoView(title: getTime(startDate: _experience.startDate, endDate: _experience.endDate), subtitle: _experience.projectName + " - " + _experience.description, content: "开发语言：\(getString(_experience.programLanguages))\n设计模式：\(getString(_experience.designPatterns, separator: ", "))\n主要技术：\(getString(_experience.mainTechniques, separator: "\n"))")
+    }
+  }
+  
+  struct SectionView<Content>: View where Content: View {
+    private let _title: String
+    private let _content: Content
+    
+    init(title: String, @ViewBuilder content: () -> Content) {
+      _title = title
+      _content = content()
+    }
+    var body: some View {
+      ZXYVStack {
+        TitleLabel(text: _title)
+        _content
+      }
+    }
+  }
+  
+  struct WorkInfoView: View{
+    private let _experience: WorkExperience
+    init(experience: WorkExperience) {
+      _experience = experience
+    }
+    
+    var body: some View {
+      DisclosureInfoView(title: getTime(startDate: _experience.startDate, endDate: _experience.endDate), subtitle: _experience.companyName, content: _experience.description)
     }
   }
 }

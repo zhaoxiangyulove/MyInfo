@@ -38,11 +38,11 @@ struct MyInfo {
       ])
     ]
     workExperienceList = [
-      WorkExperience(startDate: "2019.11".zxy_getDate(), endDate: nil, companyName: "达佳互联", description: " 负责 Kim 重构版本架构设计和消息模块开发.\n  负责登录组件化模块设计和开发.\n  负责打包发版和观察线上数据."),
-      WorkExperience(startDate: "2018.03".zxy_getDate(), endDate: "2019.10".zxy_getDate(), companyName: "iHandy", description: " 负责项目组 Color Fun 产品研发, 负责广告、成就、订阅、主玩页面的相关功能开发和维护.\n 负责SDK 组广告相关开发, 包括新广告厂商的接入和封装，新的策略开发, 提供并指导项目组使用."),
-      WorkExperience(startDate: "2017.07".zxy_getDate(), endDate: "2018.02".zxy_getDate(), companyName: "四维数创", description: " 负责阜阳市智慧社区平台项目开发, 包括平台应用开发, 和应用管理界面开发."),
-      WorkExperience(startDate: "2016.04".zxy_getDate(), endDate: "2017.06".zxy_getDate(), companyName: "飞艾科技", description: " 负责 iOS 项目 Holo-在线试穿戴 的所有功能."),
-      WorkExperience(startDate: "2013.06".zxy_getDate(), endDate: "2015.06".zxy_getDate(), companyName: "远光软件", description: " 编写需求文档，与产品经理配合，完成国网的各项目标")
+      WorkExperience(startDate: "2019.11".zxy_getDate(), endDate: nil, companyName: "达佳互联", description: "负责 Kim 重构版本架构设计和消息模块开发.\n负责登录组件化模块设计和开发.\n负责打包发版和观察线上数据."),
+      WorkExperience(startDate: "2018.03".zxy_getDate(), endDate: "2019.10".zxy_getDate(), companyName: "iHandy", description: "负责项目组 Color Fun 产品研发, 负责广告、成就、订阅、主玩页面的相关功能开发和维护.\n负责SDK 组广告相关开发, 包括新广告厂商的接入和封装，新的策略开发, 提供并指导项目组使用."),
+      WorkExperience(startDate: "2017.07".zxy_getDate(), endDate: "2018.02".zxy_getDate(), companyName: "四维数创", description: "负责阜阳市智慧社区平台项目开发, 包括平台应用开发, 和应用管理界面开发."),
+      WorkExperience(startDate: "2016.04".zxy_getDate(), endDate: "2017.06".zxy_getDate(), companyName: "飞艾科技", description: "负责 iOS 项目 Holo-在线试穿戴 的所有功能."),
+      WorkExperience(startDate: "2013.06".zxy_getDate(), endDate: "2015.06".zxy_getDate(), companyName: "远光软件", description: "编写需求文档，与产品经理配合，完成国网的各项目标")
     ]
   }
 }
