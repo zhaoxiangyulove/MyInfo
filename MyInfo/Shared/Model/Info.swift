@@ -38,7 +38,8 @@ struct Skill: Identifiable {
   let proficiency: Proficiency
 }
 
-struct ProjectExperience {
+struct ProjectExperience: Identifiable {
+  let id = UUID()
   let startDate: Date
   let endDate: Date?
   let projectName: String
@@ -49,7 +50,8 @@ struct ProjectExperience {
   let mainTechniques: [Technique]
 }
 
-struct WorkExperience {
+struct WorkExperience: Identifiable {
+  let id = UUID()
   let startDate: Date
   let endDate: Date?
   let companyName: String

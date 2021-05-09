@@ -6,29 +6,6 @@
 //
 import SwiftUI
 
-protocol BasicInfoItem {
-  var name: String { get }
-  var phone: String { get }
-  var email: String { get }
-  var avatar: UIImage { get}
-}
-
-protocol GraduationInfoItem {
-  var description: String { get }
-}
-
-protocol SkillInfo {
-  var description: String { get }
-  var skills: [Skill] { get }
-}
-
-protocol MyInfoViewModel {
-  var basicInfo: BasicInfoItem { get }
-  var graduationInfo: GraduationInfoItem { get }
-  var skillInfo: SkillInfo { get }
-}
-
-
 struct MyInfoView: View {
   // maybe DI better
   private let vm: MyInfoViewModel = MyInfoViewModelIMP()
@@ -39,6 +16,9 @@ struct MyInfoView: View {
         BasicInfoView(basicInfo: vm.basicInfo)
         GraduationInfoView(graduationInfo: vm.graduationInfo)
         SkillInfoView(skillInfo: vm.skillInfo)
+        ProjectInfoList(projectInfo: vm.projectInfo)
+        WorkInfoList(workInfo: vm.workInfo)
+        SummaryView(description: vm.summary)
       }
       .navigationBarTitle("个人简历")
     }
@@ -54,11 +34,11 @@ struct MyInfoView: View {
       HStack {
         AvatarView(avatar: _basicInfo.avatar)
           .padding(.all)
-        VStack(alignment: .leading, spacing: nil, content: {
+        ZXYVStack {
           InfoLabel(text: "姓名: " + _basicInfo.name)
           InfoLabel(text: "电话: " + _basicInfo.phone)
           InfoLabel(text: "邮箱: " + _basicInfo.email)
-        })
+        }
       }
     }
   }
@@ -67,15 +47,15 @@ struct MyInfoView: View {
     private let _title: String
     private let _content: Content
     
-    init(title: String, content: () -> Content) {
+    init(title: String, @ViewBuilder content: () -> Content) {
       _title = title
       _content = content()
     }
     var body: some View {
-      VStack(alignment: .leading, spacing: nil, content: {
+      ZXYVStack {
         TitleLabel(text: _title)
         _content
-      })
+      }
     }
   }
   
@@ -93,63 +73,88 @@ struct MyInfoView: View {
   }
   
   struct SkillInfoView: View {
-    private let _skillInfo: SkillInfo
-    init(skillInfo: SkillInfo) {
+    private let _skillInfo: SkillInfoItem
+    init(skillInfo: SkillInfoItem) {
       _skillInfo = skillInfo
     }
     
     var body: some View {
       SectionView(title: "相关技能") {
-        VStack(alignment: .leading, spacing: nil, content: {
+        ZXYVStack {
           InfoLabel(text: _skillInfo.description)
           ForEach(_skillInfo.skills) { (skill)  in
-            InfoLabel(text: "")
+            InfoLabel(text: skill.language.rawValue + " | " + skill.proficiency.rawValue + " | " + "\(skill.useYears) " + "年")
           }
-        })
+        }
       }
     }
   }
   
-  struct AvatarView: View {
-    private let _avatar: UIImage
-    init(avatar: UIImage) {
-      _avatar = avatar
+  struct ProjectInfoList: View {
+    private let _item: ProjectInfoItem
+    init(projectInfo: ProjectInfoItem) {
+      _item = projectInfo
     }
     
     var body: some View {
-      Image(uiImage: _avatar)
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-        .frame(width: 64.0, height: 64.0)
-        .cornerRadius(32)
+      ZXYVStack {
+        TitleLabel(text: "项目经验")
+        ForEach(_item.projectExperienceList) { (experience) in
+          ProjectInfoView(experience: experience)
+        }
+      }
     }
   }
   
-  struct InfoLabel: View {
-    private let _text: String
-    init(text: String) {
-      _text = text
+  struct WorkInfoList: View {
+    private let _item: WorkInfoItem
+    init(workInfo: WorkInfoItem) {
+      _item = workInfo
     }
     
-    var body: some View  {
-      Text(_text)
-        .font(.body)
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 2
-                            , trailing: 0))
+    var body: some View {
+      ZXYVStack {
+        TitleLabel(text: "工作经历")
+        ForEach(_item.workExperienceList) { (experience) in
+          WorkInfoView(experience: experience)
+        }
+      }
     }
   }
   
-  struct TitleLabel: View {
-    private let _text: String
-    init(text: String) {
-      _text = text
+  struct ProjectInfoView: View{
+    private let _experience: ProjectExperience
+    init(experience: ProjectExperience) {
+      _experience = experience
     }
     
-    var body: some View  {
-      Text(_text)
-        .font(.caption)
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 2
-                            , trailing: 0))
+    var body: some View {
+      DisclosureInfoView(title: getTime(startDate: _experience.startDate, endDate: _experience.endDate), subtitle: _experience.projectName + " - " + _experience.description, content: "开发语言：\(getString(_experience.programLanguages))\n设计模式：\(getString(_experience.designPatterns, separator: ", "))\n主要技术：\(getString(_experience.mainTechniques, separator: "\n"))")
+    }
+  }
+  
+  struct WorkInfoView: View{
+    private let _experience: WorkExperience
+    init(experience: WorkExperience) {
+      _experience = experience
+    }
+    
+    var body: some View {
+      DisclosureInfoView(title: getTime(startDate: _experience.startDate, endDate: _experience.endDate), subtitle: _experience.companyName, content: _experience.description)
+    }
+  }
+  
+  struct SummaryView: View {
+    private let _description: String
+    init(description: String) {
+      _description = description
+    }
+    
+    var body: some View {
+      ZXYVStack {
+        TitleLabel(text: "总结")
+        InfoLabel(text: _description)
+      }
     }
   }
 }

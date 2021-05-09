@@ -21,6 +21,10 @@
 		A2A50E3D26455FAA00B1BC76 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A50E3B26455FAA00B1BC76 /* MyInfoView.swift */; };
 		A2A50E432645730100B1BC76 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A50E422645730100B1BC76 /* MyInfoViewModel.swift */; };
 		A2A50E442645730100B1BC76 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A50E422645730100B1BC76 /* MyInfoViewModel.swift */; };
+		A2E288F426478D2D005AD238 /* MyInfoSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E288F326478D2D005AD238 /* MyInfoSubviews.swift */; };
+		A2E288F526478D2D005AD238 /* MyInfoSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E288F326478D2D005AD238 /* MyInfoSubviews.swift */; };
+		A2E288F926478E0D005AD238 /* MyInfoViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E288F826478E0D005AD238 /* MyInfoViewProtocols.swift */; };
+		A2E288FA26478E0D005AD238 /* MyInfoViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E288F826478E0D005AD238 /* MyInfoViewProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,8 @@
 		A2A50E3626455F2900B1BC76 /* MyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfo.swift; sourceTree = "<group>"; };
 		A2A50E3B26455FAA00B1BC76 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		A2A50E422645730100B1BC76 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
+		A2E288F326478D2D005AD238 /* MyInfoSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoSubviews.swift; sourceTree = "<group>"; };
+		A2E288F826478E0D005AD238 /* MyInfoViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +70,9 @@
 				A2A508862644D0C200B1BC76 /* macOS */,
 				A2A5087E2644D0C200B1BC76 /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		A2A508752644D0C000B1BC76 /* Shared */ = {
 			isa = PBXGroup;
@@ -118,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				A2A50E3B26455FAA00B1BC76 /* MyInfoView.swift */,
+				A2E288F826478E0D005AD238 /* MyInfoViewProtocols.swift */,
+				A2E288F326478D2D005AD238 /* MyInfoSubviews.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -228,10 +238,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2A50E3226455E8C00B1BC76 /* Common.swift in Sources */,
+				A2E288F426478D2D005AD238 /* MyInfoSubviews.swift in Sources */,
 				A2A50B6B2644DB8C00B1BC76 /* Info.swift in Sources */,
 				A2A50E432645730100B1BC76 /* MyInfoViewModel.swift in Sources */,
 				A2A50E3726455F2900B1BC76 /* MyInfo.swift in Sources */,
 				A2A50E3C26455FAA00B1BC76 /* MyInfoView.swift in Sources */,
+				A2E288F926478E0D005AD238 /* MyInfoViewProtocols.swift in Sources */,
 				A2A508892644D0C200B1BC76 /* MyInfoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,10 +253,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2A50E3326455E8C00B1BC76 /* Common.swift in Sources */,
+				A2E288F526478D2D005AD238 /* MyInfoSubviews.swift in Sources */,
 				A2A50B6C2644DB8C00B1BC76 /* Info.swift in Sources */,
 				A2A50E442645730100B1BC76 /* MyInfoViewModel.swift in Sources */,
 				A2A50E3826455F2900B1BC76 /* MyInfo.swift in Sources */,
 				A2A50E3D26455FAA00B1BC76 /* MyInfoView.swift in Sources */,
+				A2E288FA26478E0D005AD238 /* MyInfoViewProtocols.swift in Sources */,
 				A2A5088A2644D0C200B1BC76 /* MyInfoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
